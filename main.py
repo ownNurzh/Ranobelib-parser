@@ -10,7 +10,7 @@ chapters_text = get_chapters_text_from_file()
 choice = random.choice(chapters_list)
 
 random_chapter_paragraphs = chapters_text[choice.volume][choice.number].get("content")
-idx = random.randrange(len(random_chapter_paragraphs) - 1)
+idx = random.randrange(len(random_chapter_paragraphs))
 random_paragraph = random_chapter_paragraphs[idx]
 print(choice.name ,choice.volume,choice.number,idx,random_paragraph.get("content").get("text"))
 #initer_text = InitChaptersText(Config.url_base_for_get_chapter)
