@@ -104,7 +104,7 @@ class Analyzer:
 				rimuru_word["max"] = info.get("count_rimuru")
 				rimuru_word["name_max"] = name
 
-			print(f"Название главы <{name}> , Кол. параграфов - {info.get("count_p")} , Кол. изображений - {info.get("count_image")},Кол слов - {info.get("count_word")},Кол упоминание Римуру - {info.get("count_rimuru")}")
+			print(f"Название главы <{name}> {info.get("volume")} {info.get("chapter")} , Кол. параграфов - {info.get("count_p")} , Кол. изображений - {info.get("count_image")},Кол слов - {info.get("count_word")},Кол упоминание {Config.character_name_to_search} - {info.get("count_rimuru")}")
 		print(f"Глава с минимальным кол. параграфа {result[words["name_max"]]["volume"]} том {result[paragraph["name_max"]]["chapter"]} глава <{paragraph["name_min"]}> c {paragraph["min"]}")
 		print(f"Глава с максимальным кол. параграфа {result[words["name_max"]]["volume"]} том {result[paragraph["name_max"]]["chapter"]} глава <{paragraph["name_max"]}> c {paragraph["max"]}")
 		print(f"Глава с минимальным кол. слов {result[words["name_max"]]["volume"]} том {result[words["name_max"]]["chapter"]} глава <{words["name_min"]}> c {words["min"]}")
