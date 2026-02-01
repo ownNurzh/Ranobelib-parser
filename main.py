@@ -11,9 +11,9 @@ chapters_list = get_chapters_id_from_file()
 
 analyzer_object = Analyzer(get_chapters_text_from_file())
 
-analyzer_object.print_volume_count_and_chapters_length()
-#analyzer_object.print_count_paragraphs_and_count_words()
+#analyzer_object.print_volume_count_and_chapters_length()
+analyzer_object.print_count_paragraphs_and_count_words()
 
 
-text = "На глазах у девочки два близнеца-дварфа оживленно спорили, каждый сжимал в руках стопку своих собственных шедевров."
+text = "Он понимал насколько силен Рудра, но не предполагал, что тот сможет победить его теперь, когда была Стража Замка."
 analyzer_object.search_text(text)

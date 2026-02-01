@@ -1,5 +1,5 @@
 from util import get_chapters_text_from_file
-
+from config import Config
 class Analyzer:
 	def __init__(self,chapters_dict):
 		self.chapters = chapters_dict
@@ -54,7 +54,7 @@ class Analyzer:
 								object_for_calc_count_words = p_content if not isinstance(p_content,list) else p_content[0]
 								text = object_for_calc_count_words.get("text","")
 								result[chapter_name]["count_word"] += len(text.split())
-								if "Римуру" in text:
+								if Config.character_name_to_search in text:
 									result[chapter_name]["count_rimuru"] += 1
 
 
@@ -63,9 +63,11 @@ class Analyzer:
 		rimuru_word = {"name_min":None,"name_max":None}
 		summ_word = []
 		summ_p = []
+		summ_rimuru= []
 		for name,info in result.items():
 			summ_word.append(info.get("count_word"))
 			summ_p.append(info.get("count_p"))
+			summ_rimuru.append(info.get("count_rimuru"))
 			if not paragraph.get("min") and not paragraph.get("max"):
 				paragraph["min"] = info.get("count_p")
 				paragraph["max"] = info.get("count_p")
@@ -111,6 +113,7 @@ class Analyzer:
 		print(f"Глава с максимальным кол. упоминании Римуру {result[rimuru_word["name_max"]]["volume"]} том {result[rimuru_word["name_max"]]["chapter"]} глава <{rimuru_word["name_max"]}> c {rimuru_word["max"]}")
 		print(f"Сумма всех слов {sum(summ_word)}")
 		print(f"Сумма всех параграфов {sum(summ_p)}")
+		print(f"Сумма всех упоминаний {Config.character_name_to_search} {sum(summ_rimuru)}")
 
 
 
