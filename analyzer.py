@@ -26,7 +26,8 @@ class Analyzer:
 						object_for_calc_count_words = p_content if not isinstance(p_content,list) else p_content[0]
 						text = object_for_calc_count_words.get("text","")
 						if goal_text in text:
-							print(f"{chapter_name} Том {volume_id} глава {chapter_id} параграф {key + 1}")
+							parag = key + 1
+							print(f"( Т{volume_id}.Г{chapter_id}.П{parag} ) {chapter_name} Том {volume_id} глава {chapter_id} параграф {parag}")
 							return 
 		print("Не найден")
 
