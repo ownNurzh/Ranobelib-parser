@@ -13,8 +13,9 @@ class Analyzer:
 		print(f"Количество томов {length_volumes}")
 		print(f"Сумма всех глав {summ_chapters}")
 		print(f"Авг глава за том {chapter_avg:.0f}")
-	def search_text(self,goal_text:str):
+	def search_text(self,goal_text:str,limit:int):
 		result = {}
+		b = 0
 		for volume_id,volume_chapters in self.chapters.items():
 			for chapter_id , chapter_data in volume_chapters.items():
 				chapter_name = chapter_data.get("name")
@@ -26,9 +27,13 @@ class Analyzer:
 						object_for_calc_count_words = p_content if not isinstance(p_content,list) else p_content[0]
 						text = object_for_calc_count_words.get("text","")
 						if goal_text in text:
+							if b == limit:
+								return
+							b += 1
 							parag = key + 1
+							print(text)
 							print(f"( Т{volume_id}.Г{chapter_id}.П{parag} ) {chapter_name} Том {volume_id} глава {chapter_id} параграф {parag}")
-							return 
+							#return 
 		print("Не найден")
 
 
