@@ -22,5 +22,5 @@ analyzer_object = Analyzer(chapters_text)
 #analyzer_object.print_count_paragraphs_and_count_words()
 
 
-text = "Юки"
+text = "Вестер"
 analyzer_object.search_text(text,1)
