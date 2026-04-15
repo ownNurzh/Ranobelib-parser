@@ -22,5 +22,5 @@ analyzer_object.print_volume_count_and_chapters_length()
 analyzer_object.print_count_paragraphs_and_count_words()
 
 
-# text = "Вестер"
-# analyzer_object.search_text(text,1)
+text = "У-ф-ф… не беспокойся. Аянокоджи-семпай, я же говорила, что буду сопровождать тебя!.. — пропыхтела Нанасе и продолжила карабкаться вверх, не беспокоясь о возможности очередного падения."
+analyzer_object.search_text(text,1)

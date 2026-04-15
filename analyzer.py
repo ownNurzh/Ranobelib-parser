@@ -28,7 +28,7 @@ class Analyzer:
 					if p_type and p_type == "paragraph" and p_content:
 						object_for_calc_count_words = p_content if not isinstance(p_content,list) else p_content[0]
 						text = object_for_calc_count_words.get("text","")
-						if re.search(rf"\b{re.escape(goal_text)}\b", text): #goal_text
+						if goal_text in text: #goal_text
 							if b == limit:
 								return
 							b += 1
@@ -38,7 +38,7 @@ class Analyzer:
 							print(f"{ezro_format} {chapter_name} Том {volume_id} глава {chapter_id} параграф {parag}")
 							pyperclip.copy(f"{ezro_format} {goal_text}")
 							#return 
-		print("Не найден")
+		
 
 
 
