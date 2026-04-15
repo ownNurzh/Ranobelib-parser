@@ -1,5 +1,5 @@
 class Config:
-	url_base_for_get_chapter = "https://api.cdnlibs.org/api/manga/59249--tensei-shitara-slime-datta-ken-light-novel/chapter"
+	url_base_for_get_chapter = "https://api.cdnlibs.org/api/manga/6709--youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-novel/chapter"
 	#url_for_get_chapter = "https://api.cdnlibs.org/api/manga/59249--tensei-shitara-slime-datta-ken-light-novel/chapter?number=0.5&volume=1"
 	file_name_for_chapter_id = "chapters_id.json"
 	file_name_for_chapter_text = "chapters_text.json"

@@ -22,13 +22,19 @@ class InitChaptersText():
 			headers = {
 				"Accept": "application/json", 
 				"Content-Type": "application/json", 
-				"User-Agent": "Mozilla/5.0"
+				"User-Agent": "Mozilla/5.0",
+				"Referer": "https://ranobelib.me/",
+    			"Origin": "https://ranobelib.me"
 			}
 			if not result.get(volume):
 				result[volume] = {}
 			if not result.get(volume,{}).get(number):
 				result[volume][number] = {"name":chapter.name,"content":[]}
-			response = requests.get(self.url_base,params=new_params,headers=headers)
+
+			session = requests.Session()
+
+			session.headers.update(headers)
+			response = session.get(self.url_base,params=new_params,headers=headers)
 			if response.status_code == 200:
 				response_text = response.json()
 				paragraphs = response_text.get("data",{}).get("content",{})
@@ -38,9 +44,9 @@ class InitChaptersText():
 				paragraphs = paragraphs.get("content")
 				result[volume][number]["content"] = paragraphs
 				print(f"Current {key} , Max {length}")
-				time.sleep(3.5)
 			else:
 				print(f"HTTP status code - {response.status_code}")
+			time.sleep(3.5)
 		self._save_file(result)
 	def _save_file(self,array:dict):
 		with open(Config.file_name_for_chapter_text, "w", encoding="utf-8") as f:
